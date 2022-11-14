@@ -1,10 +1,11 @@
 from django.contrib import admin
 
-from apps.mapa.models import Mapa, Passo, PerguntaEResposta
+from apps.mapa.models import Mapa, Passo, PerguntaEResposta, Trilha, Link
 
 
 class PassoInline(admin.TabularInline):
     model = Passo
+    show_change_link = True
     verbose_name = "Passos"
     ordering = ('ordem',)
     extra = 3
@@ -48,4 +49,21 @@ class PassoAdmin(admin.ModelAdmin):
 
 @admin.register(PerguntaEResposta)
 class PerguntaERespostaAdmin(admin.ModelAdmin):
+    pass
+
+
+class MapaInline(admin.TabularInline):
+    model = Mapa
+    show_change_link = True
+    verbose_name = "Mapas"
+    extra = 1
+
+
+@admin.register(Trilha)
+class TrilhaAdmin(admin.ModelAdmin):
+    inlines = (MapaInline,)
+
+
+@admin.register(Link)
+class LinkAdmin(admin.ModelAdmin):
     pass
