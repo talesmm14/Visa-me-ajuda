@@ -127,7 +127,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'config.wsgi.application'
 
 
-CSRF_TRUSTED_ORIGINS = ['*']
+CSRF_TRUSTED_ORIGINS = ['https://services.novoenvio.com.br/', '132.226.255.193']
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
